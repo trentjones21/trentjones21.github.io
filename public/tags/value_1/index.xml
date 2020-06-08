@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>value_1 on trentjones.dev</title>
+    <link>/tags/value_1/</link>
+    <description>trentjones.dev (value_1)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 08 Jun 2020 10:39:11 -0600</lastBuildDate>
+    
+    <atom:link href="/tags/value_1/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>My First Post</title>
+      <link>/posts/my-first-post/</link>
+      <pubDate>Mon, 08 Jun 2020 10:39:11 -0600</pubDate>
+      
+      <guid>/posts/my-first-post/</guid>
+      <description>&lt;p&gt;Here is some code&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;&lt;!--
+--&gt;//javascript goes here...
+&lt;/pre&gt;&lt;/code&gt;
+&lt;p&gt;The code is over&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
