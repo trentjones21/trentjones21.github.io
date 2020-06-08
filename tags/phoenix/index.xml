@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Phoenix on trentjones.dev</title>
+    <link>/tags/phoenix/</link>
+    <description>trentjones.dev (Phoenix)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 08 Jun 2020 11:08:55 -0600</lastBuildDate>
+    
+    <atom:link href="/tags/phoenix/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Rendering Javascript Charts in Elixir</title>
+      <link>/posts/rendering-javascript-charts-in-elixir/</link>
+      <pubDate>Mon, 08 Jun 2020 11:08:55 -0600</pubDate>
+      
+      <guid>/posts/rendering-javascript-charts-in-elixir/</guid>
+      <description>&lt;p&gt;If you&amp;rsquo;re like me, you like to stay away from Javascript when writing your Elixir code.  That is why I was pleased to discover &lt;a href=&#34;https://github.com/buren/chartkick-ex&#34;&gt;chartkick-ex&lt;/a&gt; recently when I needed a chart solution for my Phoenix site. It makes embedding Javascript charts in to your Elixir templates a breeze.&lt;/p&gt;
+&lt;p&gt;To install it, just add the following to your mix.exs file&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#39;language-elixir&#39;&gt;[
+...
+{:chartkick, &#34;~&gt;0.4.0&#34;},
+{:poison, &#34;~&gt; 3.1&#34;}
+]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Chartkick can use Google Charts, Chart.js, or Highcharts.  So you need to add one of the following to the &lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt; of your site&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#39;language-javascript&#39;&gt;&lt;!--
+--&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;script&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;src&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;//www.google.com/jsapi&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;script&lt;/span&gt;&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+//or
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;script&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;src&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;script&lt;/span&gt;&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+//or
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;script&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;src&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://cdnjs.cloudflare.com/ajax/libs/highcharts/8.1.0/highcharts.min.js&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;script&lt;/span&gt;&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then, you can use Elixir in your template files to handle the rest.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#39;language-elixir&#39;&gt;&lt;!--
+--&gt;&lt;% data = Poison.encode!([[175, 60], [190, 80], [180, 75]]) %&gt;
+&lt;%= Chartkick.line_chart data %&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
