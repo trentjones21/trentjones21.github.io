@@ -1,7 +1,7 @@
 ---
 title: "Rendering Javascript Charts in Elixir"
 date: 2020-06-08T11:08:55-06:00
-draft: true
+draft: false
 tags: ["Elixir", "Phoenix", "Charts"]
 ---
 
