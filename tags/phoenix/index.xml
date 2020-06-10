@@ -6,10 +6,46 @@
     <description>trentjones.dev (Phoenix)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 08 Jun 2020 11:08:55 -0600</lastBuildDate>
+    <lastBuildDate>Tue, 09 Jun 2020 18:48:07 -0600</lastBuildDate>
     
     <atom:link href="/tags/phoenix/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Elixir Many to Many Inserts</title>
+      <link>/posts/elixir-many-to-many-inserts/</link>
+      <pubDate>Tue, 09 Jun 2020 18:48:07 -0600</pubDate>
+      
+      <guid>/posts/elixir-many-to-many-inserts/</guid>
+      <description>&lt;p&gt;The Ecto docs explain &lt;a href=&#34;https://hexdocs.pm/ecto/polymorphic-associations-with-many-to-many.html&#34;&gt;how to set up many to many relationships&lt;/a&gt; in your database.  They even explain how to seamlessly update many to many records in your Phoenix UI:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#39;language-elixir&#39;&gt;&lt;!--
+--&gt;&lt;%= form_for @todo_list_changeset,
+             todo_list_path(@conn, :create),
+             fn f -&gt; %&gt;
+  &lt;%= text_input f, :title %&gt;
+  &lt;%= inputs_for f, :todo_items, fn i -&gt; %&gt;
+    ...
+  &lt;% end %&gt;
+&lt;% end %&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Here, we have a form that allows you to update many todo items at once, and Ecto handles all the details.  This is great if all you need to do is update existing records.  However, adding new records can be a bit trickier, and the solution isn&amp;rsquo;t quite as automatic.  Here is how you can do it.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#39;language-elixir&#39;&gt;&lt;!--
+--&gt;def create_todo_item(%{params: %{&#34;list_id&#34; =&gt; id}} = conn, %{&#34;todo_item&#34; =&gt; todo_item_params}) do
+  todo_item = Ecto.Changeset.change(todo_item_params)
+  list = MyApp.get_list!(id)
+
+  items = list.items ++ [todo_item]
+              |&gt; Enum.map(&amp;Ecto.Changeset.change/1)
+
+  case list
+  |&gt; Ecto.Changeset.change
+  |&gt; Ecto.Changeset.put_assoc(:items, items)
+  |&gt; MyApp.Repo.update 
+end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This will automatically create a new row in the &amp;lsquo;todo_item&amp;rsquo; table, as well as the association table &amp;lsquo;todo_item_list&amp;rsquo;.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Rendering Javascript Charts in Elixir</title>
